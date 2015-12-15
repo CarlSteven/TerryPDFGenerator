@@ -10,8 +10,11 @@
     <button class="button button-stable button-block" ng-click="read()">Process Input</button>
 
     <ion-list>
-      <ion-item ng-show="inputJSON.length > 0">
+      <ion-item ng-show="inputJSON.length > 0" class="item item-button-right">
         Students
+        <button class="button button-positive" ng-click="downloadAll()">
+          Download All
+        </button>
       </ion-item>
       <ion-item ng-hide="inputJSON.length > 0">
         No Students Found

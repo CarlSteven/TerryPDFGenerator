@@ -35,8 +35,46 @@ angular.module('app.controllers', [])
       $scope.inputJSON = $.csv.toObjects($scope.csv_internal);
     };
 
+    $scope.downloadAll = function () {
+      $scope.loadingIndicator = $ionicLoading.show({
+        content: 'Downloading data and Creating pdf ...'
+      });
+      var pdfList = [];
+      $scope.inputJSON.forEach(function (item, $index) {
+        var pdfObj = {};
+        pdfObj.pdf = $scope.createPdf(item);
+        pdfObj.item = item;
+        pdfList.push(pdfObj);
+      });
+
+      $scope.generateMultiplePDF(pdfList).then(function (pdfBinaryArray) {
+        pdfBinaryArray.forEach(function (pdf) {
+          var link = document.createElement("a");
+          link.download = pdf.item.last_name + pdf.item.first_name;
+          link.href = pdf.pdf;
+          link.click();
+        });
+        $ionicLoading.hide();
+      });
+    };
+
     $scope.generatePDF = function (item) {
-      $scope.createPdf(item);
+      $scope.createPdf(item).download(item.last_name + item.first_name);
+    };
+
+    $scope.generateMultiplePDF = function (objects) {
+      var retObjects = [];
+      angular.forEach(objects, function (pdfObject, index) {
+        var deferred = $q.defer();
+        pdfMake.createPdf(pdfObject.pdf).getDataUrl(function (slipPdfObject) {
+          var pdfObj = {};
+          pdfObj.pdf = angular.copy(slipPdfObject);
+          pdfObj.item = pdfObject.item;
+          deferred.resolve(pdfObj);
+        });
+        retObjects.push(deferred.promise);
+      });
+      return $q.all(retObjects);
     };
 
     var coursework = [],
@@ -49,14 +87,10 @@ angular.module('app.controllers', [])
       scholarship = [];
 
     // callback for ng-click 'createPdf':
-    $scope.createPdf = function (item) {
-
+    $scope.createPdf = function (item_input) {
+      var item = angular.copy(item_input);
+      console.log(item);
       //load all list data
-      $scope.loadingIndicator = $ionicLoading.show({
-        content: 'Downloading data and Creating pdf ...'
-      });
-
-      var listPromises = [];
 
       //TODO use filter
       //clean data
@@ -116,128 +150,21 @@ angular.module('app.controllers', [])
       }
 
       //after loading individual lists, we are ready to create the actual pdf
-      $q.all(listPromises).then(function () {
-        //define font to use in pdf
-        pdfMake.fonts = {
-          TimesNewRoman: {
-            normal: 'Times-New-Roman-Regular.ttf',
-            bold: 'Times-New-Roman-Bold.ttf',
-            italics: 'Times-New-Roman-Italic.ttf',
-            bolditalics: 'Times-New-Roman-Bold-Italic.ttf'
-          }
-        };
-
-        var docDefinition = createDocument(item);
-
-        $timeout(function () {
-          $ionicLoading.hide();
-        }, 200);
-        //try {
-        pdfMake.createPdf(docDefinition).open();
-        //} catch (err) {
-        //  console.error(err);
-        //}
-      });
-    };
-
-    //support functions for pdf creation
-    function buildTableBody(data, columns, headers, emptyRows) {
-      var body = [],
-        i,
-        j,
-        headerRow = [];
-
-      for (i = 0; i < headers.length; i++) {
-        headerRow.push({
-          text: headers[i],
-          fillColor: 'lightgrey'
-        });
-      }
-
-      // body.push(headers);
-      body.push(headerRow);
-
-      if (emptyRows === undefined) {
-        emptyRows = 3;
-      }
-
-      if (data !== undefined) {
-
-        data.forEach(function (row) {
-          var dataRow = [];
-
-          columns.forEach(function (column) {
-            dataRow.push(row[column].toString());
-          });
-
-          body.push(dataRow);
-        });
-
-        emptyRows = emptyRows - data.length;
-        if (emptyRows < 0) {
-          emptyRows = 0;
-        }
-      }
-
-      for (i = 0; i < emptyRows; i++) {
-        var dataRow = [];
-        for (j = 0; j < columns.length; j++) {
-          dataRow.push(' ');
-        }
-
-        body.push(dataRow);
-      }
-
-      return body;
-    }
-
-    //support functions for pdf creation
-    function buildTableWidth(widths) {
-      var width = [],
-        i;
-
-      for (i = 0; i < widths.length; i++) {
-        width.push(widths[i]);
-      }
-
-      return width;
-    }
-
-    //support functions for pdf creation
-    function table(data, columns, headers, widths, emptyRows, filter) {
-      if (filter !== undefined) {
-        data = $filter('filter')(data, {
-          level: filter
-        }, true);
-      }
-      return {
-        table: {
-          widths: buildTableWidth(widths),
-          margin: [10, 10, 10, 10],
-          headerRows: 1,
-          body: buildTableBody(data, columns, headers, emptyRows),
-          layout: {
-            hLineWidth: function (i, node) {
-              return (i === 0 || i === node.table.body.length) ? 2 : 1;
-            },
-            vLineWidth: function (i, node) {
-              return (i === 0 || i === node.table.widths.length) ? 2 : 1;
-            },
-            hLineColor: function (i, node) {
-              return (i === 0 || i === node.table.body.length) ? 'black' : 'gray';
-            },
-            vLineColor: function (i, node) {
-              return (i === 0 || i === node.table.widths.length) ? 'black' : 'gray';
-            }
-
-            // paddingLeft: function(i, node) { return 4; },
-            // paddingRight: function(i, node) { return 4; },
-            // paddingTop: function(i, node) { return 2; },
-            // paddingBottom: function(i, node) { return 2; }
-          }
+      //define font to use in pdf
+      pdfMake.fonts = {
+        TimesNewRoman: {
+          normal: 'Times-New-Roman-Regular.ttf',
+          bold: 'Times-New-Roman-Bold.ttf',
+          italics: 'Times-New-Roman-Italic.ttf',
+          bolditalics: 'Times-New-Roman-Bold-Italic.ttf'
         }
       };
-    }
+
+      var docDefinition = createDocument(item);
+
+      //pdfMake.createPdf(docDefinition).download("TerryApplication" + item.last_name + item.first_name);
+      return docDefinition;
+    };
 
     function createDocument(item) {
       return {
