@@ -855,10 +855,7 @@ angular.module('app.controllers', [])
           },
           {
             margin: [0, 0, 0, 5],
-            text: ['List all of your previous and current jobs or internships.  Include your job title, your employer’s name, how many hours per week you worked, and the dates of employment.', {
-              text: ' List your most recent activities first.',
-              bold: true
-            }]
+            text: ['List the following information for your current and previous jobs or internships, beginning with the most recent: Position/Job Title, Employer, Hours per week, Dates of Employment']
           },
           {
             text: [item.employment],
@@ -870,7 +867,8 @@ angular.module('app.controllers', [])
             style: 'notes'
           },
           {
-            text: 'Describe your role in the organization, the type of organization you were associated with, how many hours of service you devoted each week, and when you participated in each activity.  List most recent service first.'
+            margin: [0, 0, 0, 5],
+            text: 'In order of importance to you, include the following information for up to six community and/or volunteer service activities completed in grades 9-12: Organization, Description of Service, Total Hours, Months and Years Participated'
           },
           {
             text: [item.community_service],
