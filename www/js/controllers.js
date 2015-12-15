@@ -334,7 +334,7 @@ angular.module('app.controllers', [])
             style: 'title'
           },
           {
-            text: 'Terry Foundation Scholarship Program Application \n 2015-2016',
+            text: 'Terry Foundation Scholarship Program Application \n 2016-2017',
             style: 'subtitle'
           },
           {
