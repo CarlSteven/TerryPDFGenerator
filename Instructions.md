@@ -5,7 +5,7 @@
 ##Steps
 0. Prerequisite: Install and Configure Google Chrome Plugin (see below).
 1. Login to Machforms and enter the response viewing interface, select the responses to export, and export/save as a "Comma Separated Values".
-2. Navigate to the Downloads folder in Finder, right click > Open With > 'TextEdit'
+2. Navigate to the Downloads folder in Finder, find the downloaded file and right click > Open With > 'TextEdit'
 3. Select all the content of the file and paste it into the Terry Converter Application.
 4. Click on "Process Input". This may take a few seconds to a minute based on how many entries have been selected. If this process does not finish in a minute or two it is likely the Chrome Plugin was not properly installed/configured.
 5. A list of all students' application that were exported should be visible from the newly populated list.
