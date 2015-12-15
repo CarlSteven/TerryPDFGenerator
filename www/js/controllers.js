@@ -583,7 +583,7 @@ angular.module('app.controllers', [])
                 width: 'auto'
               },
               {
-                text: [item.highschool_city],
+                text: [item.highschool_city + ", " + item.hs_state],
                 style: 'field'
               }
             ]
