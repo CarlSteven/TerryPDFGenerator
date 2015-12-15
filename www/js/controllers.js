@@ -8,31 +8,45 @@ angular.module('app.controllers', [])
           title: 'Please enter CSV!',
           template: 'CSV input is required for processing.'
         });
+      } else {
+        $scope.loadingIndicator = $ionicLoading.show({
+          content: 'Downloading data and Creating pdf ...'
+        });
+        $scope.header = "entry_id,date_created,date_created,ip_address,first_name,middle_name,last_name,uh_id,permanent_address,permanent_address_line2,city,state,zip_code,Country,county,email,alt_cell_phone,home_phone,dob,birthplace,gender,citizen,permanent_resident,texas_resident,ethnic_background,sibling_terry,sibling_institutions,first_graduate,anticipated_major,highschool_name,highschool_city,hs_state,highschool_councelor_first,highschool_councelor_last,highschool_phone,highschool_phone_ext,highschool_councelor_email,highschool_graduation_date,highschool_gpa,highschool_scale,highschool_rank,highschool_rank_tied,highschool_rank_out,sat_reading,sat_math,sat_composite,sat_date,act_composite,act_date,national_merit,national_achievement,national_hispanic,employment,community_service,extracurriculars,awards_honors,why_apply,top_six,why_major,marital_status,total_annual_income,present_partner,marital_status_parents,dependent,texas_tomorrow_fund,father_occupation,father_employer,father_total_income,father_level_education,mother_occupation,mother_employer,mother_total_income,mother_level_education,stepparent_occupation,stepparent_employer,stepparent_total_income,stepparent_level_education,guardian_occupation,guardian_employer,guardian_total_income,guardian_level_education,income_same,increased,members_attending,financial_assistance,assistance_type,funds_saved_you,funds_saved_others,total_savings,total_investments,net_value,projected_support,adjusted_cross_income,under_25,scholarship_will_receive,scholarship_have_applied,description_special_circumstances,Upload Essays and Resume:,agreement,Date,Processed?";
+        $scope.csv_internal = "";
+        $scope.csv_line_array = $scope.csv.split("\n");
+        $scope.csv_internal = $scope.csv_internal + $scope.header;
+
+        delete $scope.csv_line_array[0];
+        delete $scope.csv_line_array[1];
+        delete $scope.csv_line_array[2];
+        delete $scope.csv_line_array[3];
+        delete $scope.csv_line_array[4];
+        delete $scope.csv_line_array[5];
+        delete $scope.csv_line_array[6];
+        delete $scope.csv_line_array[7];
+        delete $scope.csv_line_array[8];
+        delete $scope.csv_line_array[9];
+        delete $scope.csv_line_array[10];
+        delete $scope.csv_line_array[11];
+        delete $scope.csv_line_array[12];
+
+        $scope.csv_line_array.forEach(function (line) {
+          $scope.csv_internal = $scope.csv_internal + "\n" + line;
+        });
+        $scope.inputJSON = $.csv.toObjects($scope.csv_internal);
+
+        var signatureLoading = [];
+        $scope.inputJSON.forEach(function (item) {
+          signatureLoading.push($scope.getSignature(item.agreement, function (cb) {
+            item.agreement = cb;
+          }));
+        });
+
+        $q.all(signatureLoading).then(function() {
+          $ionicLoading.hide();
+        })
       }
-
-      $scope.header = "entry_id,date_created,date_created,ip_address,first_name,middle_name,last_name,uh_id,permanent_address,permanent_address_line2,city,state,zip_code,Country,county,email,alt_cell_phone,home_phone,dob,birthplace,gender,citizen,permanent_resident,texas_resident,ethnic_background,sibling_terry,sibling_institutions,first_graduate,anticipated_major,highschool_name,highschool_city,hs_state,highschool_councelor_first,highschool_councelor_last,highschool_phone,highschool_phone_ext,highschool_councelor_email,highschool_graduation_date,highschool_gpa,highschool_scale,highschool_rank,highschool_rank_tied,highschool_rank_out,sat_reading,sat_math,sat_composite,sat_date,act_composite,act_date,national_merit,national_achievement,national_hispanic,employment,community_service,extracurriculars,awards_honors,why_apply,top_six,why_major,marital_status,total_annual_income,present_partner,marital_status_parents,dependent,texas_tomorrow_fund,father_occupation,father_employer,father_total_income,father_level_education,mother_occupation,mother_employer,mother_total_income,mother_level_education,stepparent_occupation,stepparent_employer,stepparent_total_income,stepparent_level_education,guardian_occupation,guardian_employer,guardian_total_income,guardian_level_education,income_same,increased,members_attending,financial_assistance,assistance_type,funds_saved_you,funds_saved_others,total_savings,total_investments,net_value,projected_support,adjusted_cross_income,under_25,scholarship_will_receive,scholarship_have_applied,description_special_circumstances,Upload Essays and Resume:,agreement,Date,Processed?";
-      $scope.csv_internal = "";
-      $scope.csv_line_array = $scope.csv.split("\n");
-      $scope.csv_internal = $scope.csv_internal + $scope.header;
-
-      delete $scope.csv_line_array[0];
-      delete $scope.csv_line_array[1];
-      delete $scope.csv_line_array[2];
-      delete $scope.csv_line_array[3];
-      delete $scope.csv_line_array[4];
-      delete $scope.csv_line_array[5];
-      delete $scope.csv_line_array[6];
-      delete $scope.csv_line_array[7];
-      delete $scope.csv_line_array[8];
-      delete $scope.csv_line_array[9];
-      delete $scope.csv_line_array[10];
-      delete $scope.csv_line_array[11];
-      delete $scope.csv_line_array[12];
-
-      $scope.csv_line_array.forEach(function (line) {
-        $scope.csv_internal = $scope.csv_internal + "\n" + line;
-      });
-      $scope.inputJSON = $.csv.toObjects($scope.csv_internal);
     };
 
     $scope.downloadAll = function () {
@@ -40,7 +54,7 @@ angular.module('app.controllers', [])
         content: 'Downloading data and Creating pdf ...'
       });
       var pdfList = [];
-      $scope.inputJSON.forEach(function (item, $index) {
+      $scope.inputJSON.forEach(function (item) {
         var pdfObj = {};
         pdfObj.pdf = $scope.createPdf(item);
         pdfObj.item = item;
@@ -77,13 +91,36 @@ angular.module('app.controllers', [])
       return $q.all(retObjects);
     };
 
-    var coursework = [],
-      employment = [],
-      activity = [],
+    $scope.getSignature = function (url, callback) {
+      var deferred2 = $q.defer();
+      var sigpad_options = {
+        drawOnly: true,
+        displayOnly: true,
+        bgColour: '#fff',
+        penColour: '#000',
+        validateFields: false
+      };
+
+      var xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+        var responseArray = xhr.response.split('\n');
+        responseArray.forEach(function (responseLine) {
+          if (responseLine.indexOf("var sigpad_data = ") > 0) {
+            eval(responseLine);
+            $('#mf_sigpad').signaturePad(sigpad_options).regenerate(sigpad_data);
+            deferred2.resolve("loaded");
+            callback($("canvas")[0].getContext("2d").canvas.toDataURL());
+          }
+        });
+      };
+      xhr.open('GET', url);
+      xhr.send();
+
+      return deferred2.promise;
+    };
+
+    var employment = [],
       volunteer = [],
-      award = [],
-      university = [],
-      child = [],
       scholarship = [];
 
     // callback for ng-click 'createPdf':
@@ -1413,6 +1450,19 @@ angular.module('app.controllers', [])
             text: [item.scholarship_will_receive],
             alignment: 'left',
             style: 'field'
+          },
+          {
+            text: 'VII.  AGREEMENT',
+            style: 'chapterheader',
+            pageBreak: 'before'
+          },
+          {
+            margin: [0, 0, 0, 5],
+            text: 'With the electronic signature below, I certify that the information I have provided is complete and correct to the best of my knowledge. If my application is accepted, I agree to abide by the policies, rules, and regulations of the Terry Foundation. I authorize the University of Houston and the Terry Foundation to verify the information I have provided. I further understand that this information will be relied upon by the Terry Foundation in determining my financial eligibility and that the submission of false information is grounds for rejection of my application and/or withdrawal of an offer of scholarship.'
+          },
+          {
+            margin: [0, 0, 0, 5],
+            image: item.agreement
           }
         ],
         pageSize: 'LETTER',

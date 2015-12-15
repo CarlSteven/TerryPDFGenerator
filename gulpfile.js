@@ -3,8 +3,8 @@ var sh = require('shelljs/global');
 var deploy = require('gulp-deploy-git');
 var clean = require('gulp-clean');
 var BUILD_DIR = "dist";
-var PROD_REPO = "ssh://webadmin@HouSuggest/~/Terry.git";
-var STAGING_REPO = "ssh://webadmin@HouSuggestDev/~/Terry.git";
+var PROD_REPO = "ssh://webadmin@HouSuggest/~/TerryApp.git";
+var STAGING_REPO = "ssh://webadmin@HouSuggestDev/~/TerryApp.git";
 
 gulp.task('clean', function() {
   return gulp.src(BUILD_DIR, {read: false}).pipe(clean());
