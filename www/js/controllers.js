@@ -59,7 +59,7 @@ angular.module('app.controllers', [])
     };
 
     $scope.generatePDF = function (item) {
-      $scope.createPdf(item).download(item.last_name + item.first_name);
+      pdfMake.createPdf($scope.createPdf(item)).download(item.last_name + item.first_name);
     };
 
     $scope.generateMultiplePDF = function (objects) {
@@ -160,10 +160,7 @@ angular.module('app.controllers', [])
         }
       };
 
-      var docDefinition = createDocument(item);
-
-      //pdfMake.createPdf(docDefinition).download("TerryApplication" + item.last_name + item.first_name);
-      return docDefinition;
+      return createDocument(item);
     };
 
     function createDocument(item) {
