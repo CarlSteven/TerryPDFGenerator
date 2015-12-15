@@ -36,7 +36,6 @@ angular.module('app.controllers', [])
     };
 
     $scope.generatePDF = function (item) {
-      console.log(item);
       $scope.createPdf(item);
     };
 
