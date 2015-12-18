@@ -43,7 +43,7 @@ angular.module('app.controllers', [])
           }));
         });
 
-        $q.all(signatureLoading).then(function() {
+        $q.all(signatureLoading).then(function () {
           $ionicLoading.hide();
         })
       }
@@ -128,56 +128,6 @@ angular.module('app.controllers', [])
       var item = angular.copy(item_input);
       console.log(item);
       //load all list data
-
-      //TODO use filter
-      //clean data
-      if (item.citizen !== undefined) {
-        if (item.citizen === 'true') {
-          item.citizen = 'Yes';
-          item.permanent_resident = 'N/A';
-          item.permanent_resident_card = 'N/A';
-        } else {
-          item.citizen = 'No';
-          if (item.permanent_resident !== undefined) {
-            if (item.permanent_resident === 'true') {
-              item.permanent_resident = 'Yes';
-              if (item.permanent_resident_card !== undefined) {
-                if (item.permanent_resident_card) {
-                  item.permanent_resident_card = '1551';
-                } else {
-                  item.permanent_resident_card = '1551C';
-                }
-              }
-            } else {
-              item.permanent_resident = 'No';
-            }
-          }
-        }
-      }
-
-      if (item.texas_resident !== undefined) {
-        if (item.texas_resident === 'true') {
-          item.texas_resident = 'Yes';
-        } else {
-          item.texas_resident = 'No';
-        }
-      }
-
-      if (item.first_graduate !== undefined) {
-        if (item.first_graduate === 'true') {
-          item.first_graduate = 'Yes';
-        } else {
-          item.first_graduate = 'No';
-        }
-      }
-
-      if (item.texas_tomorrow_fund !== undefined) {
-        if (item.texas_tomorrow_fund === 'true') {
-          item.texas_tomorrow_fund = 'Yes';
-        } else {
-          item.texas_tomorrow_fund = 'No';
-        }
-      }
 
       //put NAs for all NULL values
       for (var key in item) {
@@ -902,7 +852,7 @@ angular.module('app.controllers', [])
           },
           {
             margin: [0, 10, 0, 10],
-            text: 'Why have you chosen your academic major(s)? What are your educational plans beyond earning your Bachelor\'s degree? What are your professional and life goals and objectives?'
+            text: 'What are your educational plans beyond earning your Bachelor\'s degree? What are your professional and life goals and objectives?'
           },
           {
             style: 'field',
@@ -1376,6 +1326,14 @@ angular.module('app.controllers', [])
             ]
           },
           {
+            text: ['Projected parental support (annual): ',
+              {
+                text: item.projected_support.toString(),
+                style: 'field'
+              }],
+            style: 'label'
+          },
+          {
             text: 'Parents’/Guardians’ Adjusted Gross Income for 2014 (line 37 on Form 1040; line 21 on form 1040A):',
             bold: true
           },
@@ -1389,14 +1347,6 @@ angular.module('app.controllers', [])
             ]
           },
           {
-            text: 'Projected parental support (annual):',
-            style: 'label'
-          },
-          {
-            text: [item.projected_support.toString()],
-            style: 'field'
-          },
-          {
             text: 'Please describe any special circumstances that affect your family’s ability to fund your college expenses (response required):',
             bold: true
           },
@@ -1406,7 +1356,7 @@ angular.module('app.controllers', [])
             width: 'auto'
           },
           {
-            text: 'Please provide the specified information for all children under 25 years of age in your family.  Do not include yourself or your parents. '
+            text: 'Please provide the specified information for all children under 25 years of age in your family (other than yourself): Name, Age, Relationship, School, Year in College, Self-Supporting?'
           },
           {
             text: [item.under_25],
