@@ -1365,7 +1365,7 @@ angular.module('app.controllers', [])
           },
           {
             margin: [0, 0, 0, 5],
-            text: 'Do you have a sibling who is a current/past Terry Scholar or who is applying for a Terry Scholarship?  If so, please give name(s) and institution(s):'
+            text: 'Do you have a sibling who is a current/past Terry Scholar or who is applying for a Terry Scholarship?'
           },
           {
             text: [item.sibling_terry],
