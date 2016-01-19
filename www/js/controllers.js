@@ -939,7 +939,7 @@ angular.module('app.controllers').controller('freshmanPDFCtrl', function ($scope
           layout: 'noBorders'
         },
         {
-          text: 'Are you claimed as a dependent by a aparent or legal guardian?'
+          text: 'Are you claimed as a dependent by a parent or legal guardian?'
         },
         {
           text: [item.dependent],
