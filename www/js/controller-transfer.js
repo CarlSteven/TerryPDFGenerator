@@ -1277,6 +1277,38 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           ]
         },
         {
+          text: 'Are there other financial resources that you regularly receive or rely upon to support yourself and your family? If so, please describe and provide the amounts:',
+          style: 'label'
+        },
+        {
+          text: [item.fin_resources],
+          style: 'field'
+        },
+        {
+          pageBreak: 'after',
+          text: ''
+        },
+        {
+          text: 'V.  FINANCIAL INFORMATION (continued)',
+          style: 'chapterheader'
+        },
+        {
+          text: 'If you provide financial support for another family (whether child, parent, sibling, or other), please tell us about this family:',
+          style: 'label'
+        },
+        {
+          text: [item.fin_support_fam],
+          style: 'field'
+        },
+        {
+          text: 'Please describe any special circumstances or additional factors that affect your family\'s ability to fund your college expenses:',
+          style: 'label'
+        },
+        {
+          text: [item.spec_circumstances],
+          style: 'field'
+        },
+        {
           margin: [0, 0, 0, 5],
           text: 'Do you have a sibling who is a current/past Terry Scholar or who is applying for a Terry Scholarship?'
         },
