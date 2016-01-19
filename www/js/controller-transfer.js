@@ -1,6 +1,4 @@
 angular.module('app.controllers').controller('transferPDFCtrl', function ($scope, $ionicLoading, $http, $q, $filter, $timeout, $ionicPopup) {
-  $scope.csv = "entry_id,date_created,date_created,ip_address,first_name,middle_name,last_name,uh_id,permanent_address,permanent_address_line2,city,state,zip_code,Country,county,email,alt_cell_phone,home_phone,dob,birthplace,gender,citizen,permanent_resident,texas_resident,texas_continuous,ethnic_background,sibling_terry,sibling_institutions,anticipated_major,highschool_name,highschool_city,highschool_state,hs_diploma,hs_dateofgrad,hs_ged,hs_ged_date,college_info,current_college_gpa,phi_kappa_member,kappa_induction_semester,colleges_attended,online_colleges_attended,ap_transferable_hours,dc_transferable_hours,online_transferable_hours,oncampus_transferable_hours,total_transferable_hours,employment_info,employment,military_service,military_location_unit,military_active_duty,military_info2,military_mos,military_training,military_honors,military_wounded,military_gi_bill,military_gi_remain,military_gi_remain_details,hazelwood,hazelwood_remaining,hazelwood_details,leadership_info,community_service,awards_honors,first_graduate,why_apply,why_major,beyond_bachelors,life_obj,faculty_influence,transfer_lessons,additional_info,marital_status,dependents,occupation,employer,agi,edu_debt,cs_received,cs_paid,childcare_exp,partner_occupation,partner_employer,partner_agi,partner_edu_debt,partner_cs_received,partner_cs_paid,partner_childcare_exp,fin_resources,fin_support_fam,spec_circumstances,dependents_info,what,rel_claimant,father_occupation,mother_occupation,parents_agi,fin_support_rec_fam,essay,signature,date,Processed?\n\
- 1,11/25/2015 13:05,,172.27.56.162,test,test,test,1234567,test,test,test,TX,test,United States,test,honors@uh.edu,(123) 456-7890,(123) 456-7891,12/31/2001,test,Female,Yes,No,Yes,Yes,Asian,Yes,test,test,test,test,test,Yes,12/23/2001,Yes,12/23/2001,0,1,Yes,test,test,test,0,0,0,0,0,Yes,test,Yes,test,Yes,test,test,test,test,Yes,Yes,Yes,test,Yes,Yes,test,test,test,test,Yes,test,test,test,test,test,test,test,Single,test,test,test,0,0,0,0,0,test,test,0,0,0,0,0,test,test,test,Yes,test,test,test,test,0,0,test.docx,http://www.uh.edu/honors/machform/machform/signature.php?q=Zm9ybV9pZD01MjEwOCZpZD0xJmVsPWVsZW1lbnRfOTQmaGFzaD01OTJmN2ExNzExOTVjYTczYjQ5MzJhZTdhNTM4ZjVkOA==,11/25/2015,";
   //get data for view
   $scope.read = function () {
     if (!$scope.csv || $scope.csv == "") {
@@ -17,24 +15,17 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
       $scope.csv_line_array = $scope.csv.split("\n");
       $scope.csv_internal = $scope.csv_internal + $scope.header;
 
-      delete $scope.csv_line_array[0];
-      //delete $scope.csv_line_array[1];
-      //delete $scope.csv_line_array[2];
-      //delete $scope.csv_line_array[3];
-      //delete $scope.csv_line_array[4];
-      //delete $scope.csv_line_array[5];
-      //delete $scope.csv_line_array[6];
-      //delete $scope.csv_line_array[7];
-      //delete $scope.csv_line_array[8];
-      //delete $scope.csv_line_array[9];
-      //delete $scope.csv_line_array[10];
-      //delete $scope.csv_line_array[11];
-      //delete $scope.csv_line_array[12];
+      for (var i = 0; i < 44; i++) {
+        console.log($scope.csv_line_array[i]);
+        delete $scope.csv_line_array[i];
+      }
 
       $scope.csv_line_array.forEach(function (line) {
         $scope.csv_internal = $scope.csv_internal + "\n" + line;
       });
       $scope.inputJSON = $.csv.toObjects($scope.csv_internal);
+
+      console.log($scope.inputJSON);
 
       var signatureLoading = [];
       $scope.inputJSON.forEach(function (item) {
@@ -145,8 +136,6 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
 
     return createTransferDocument(item);
   };
-
-  $scope.read();
 
   function createTransferDocument(item) {
     return {
