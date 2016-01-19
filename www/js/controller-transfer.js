@@ -685,6 +685,28 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'chapterheader'
         },
         {
+          columns: [
+            {
+              text: 'Are you currently employed?',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.employment_info],
+              style: 'field'
+            },
+            {
+              text: '',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [""],
+              style: 'field'
+            }
+          ]
+        },
+        {
           text: 'Employment',
           style: 'notes'
         },
@@ -698,6 +720,182 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'field'
         },
         {
+          text: 'Military service',
+          style: 'notes'
+        },
+        {
+          columns: [
+            {
+              text: 'Are you currently serving in the Reserves or National Guard?',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.military_service],
+              style: 'field'
+            },
+            {
+              text: 'If "Yes," please provide unit and location.',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.military_location_unit],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          text: 'Have you previously served on active duty in a uniformed service of the United States?',
+          style: 'label',
+          width: 'auto'
+        },
+        {
+          text: [item.military_active_duty],
+          style: 'field'
+        },
+        {
+          text: 'If "Yes," please provide the following information: Service Branch, Dates of Service, Active or Reserve, Current Status, Station Location(s) + Dates',
+          style: 'label',
+          width: 'auto'
+        },
+        {
+          text: [item.military_info2],
+          style: 'field'
+        },
+        {
+          columns: [
+            {
+              text: 'List all Military Occupation Specialties attained:',
+              style: 'label',
+              width: '50%'
+            },
+            {
+              text: 'Additional specialized training received',
+              style: 'label',
+              width: '50%'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: [item.military_mos],
+              style: 'field',
+              width: '50%'
+            },
+            {
+              text: [item.military_training],
+              style: 'field',
+              width: '50%'
+            }
+          ]
+        },
+        {
+          text: 'List all medals, honors, and awards received relating to Military Service:',
+          style: 'label'
+        },
+        {
+          text: [item.military_honors],
+          style: 'field'
+        },
+        {
+          columns: [
+            {
+              text: 'Are you a Wounded Warrior?',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.military_wounded],
+              style: 'field'
+            },
+            {
+              text: '',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [""],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'Have you previously utilized GI Bill education benefits?',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.military_gi_bill],
+              style: 'field'
+            },
+            {
+              text: 'Are you entitled to Hazelwood Act benefits?',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.hazelwood],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'If "Yes," do you have any GI Bill education benefits remaining?',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.military_gi_remain],
+              style: 'field'
+            },
+            {
+              text: 'If "Yes," do you have have any Hazelwood Act benefits remaining?',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.hazelwood_remaining],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'If "Yes," provide details:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.military_gi_remain_details],
+              style: 'field'
+            },
+            {
+              text: 'If "Yes," provide details:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.hazelwood_details],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          pageBreak: 'after',
+          text: ''
+        },
+        {
+          text: 'III.  EMPLOYMENT, ACTIVITIES, SERVICE AND AWARDS (continued)',
+          style: 'chapterheader'
+        },
+        {
           text: 'Leadership Activities',
           style: 'notes'
         },
@@ -709,14 +907,6 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: [item.community_service],
           alignment: 'left',
           style: 'field'
-        },
-        {
-          pageBreak: 'after',
-          text: ''
-        },
-        {
-          text: 'III.  EMPLOYMENT, ACTIVITIES, SERVICE AND AWARDS (continued)',
-          style: 'chapterheader'
         },
         {
           text: 'Awards, Special Honors, and Distinctions',
