@@ -1042,6 +1042,15 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           layout: 'noBorders'
         },
         {
+          text: 'Please provide the following information for all dependents (spouse, children or stephchildren, parents, others) who reside with you or to whom you are obligated to provide support for: \n Name, Age, Relationship, Year in College (if applicable), Reside with you? (yes/no)'
+        },
+        {
+          text: [item.dependents],
+          style: 'field',
+          width: 'auto',
+          margin: [5, 0, 0, 5]
+        },
+        {
           text: 'Were you or will you be listed as a dependent on someone else\'s tax return for 2015?'
         },
         {
@@ -1049,6 +1058,223 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'field',
           width: 'auto',
           margin: [5, 0, 0, 5]
+        },
+        {
+          text: 'If "Yes," to the above question, complete the following:'
+        },
+        {
+          columns: [
+            {
+              text: 'Name of claimant:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.what],
+              style: 'field'
+            },
+            {
+              text: 'Relationship of claimant:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.rel_claimant],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'Father/Stepfather occupation:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.father_occupation],
+              style: 'field'
+            },
+            {
+              text: 'Mother/Stepmother occupation:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.mother_occupation],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          text: 'Your parent(s)\', stepparent(s)\', or gaurdians\' Adjusted Gross Income for 2015:',
+          style: 'label'
+        },
+        {
+          text: [item.parents_agi],
+          style: 'field'
+        },
+        {
+          text: 'Amount of financial support received by you from family (not your partner) in 2015:',
+          style: 'label'
+        },
+        {
+          text: [item.fin_support_rec_fam],
+          style: 'field'
+        },
+        {
+          columns: [
+            {
+              text: 'Your occupation',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.occupation],
+              style: 'field'
+            },
+            {
+              text: 'Partner\'s occupation:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.partner_occupation],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'Your employer:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.employer],
+              style: 'field'
+            },
+            {
+              text: 'Partner\'s employer:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.partner_employer],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'Your Annual Gross Income:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.agi],
+              style: 'field'
+            },
+            {
+              text: 'Partner\'s Annual Gross Income:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.partner_agi],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'Your educational debt to date:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.edu_debt],
+              style: 'field'
+            },
+            {
+              text: 'Partner\'s educational debt to date:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.partner_edu_debt],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'Your monthly child support received:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.cs_received],
+              style: 'field'
+            },
+            {
+              text: 'Partner\'s monthly child support received:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.partner_cs_received],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'Your monthly child support payment:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.cs_paid],
+              style: 'field'
+            },
+            {
+              text: 'Partner\'s monthly child support payment:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.partner_cs_paid],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'Your monthly childcare expenses:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.childcare_exp],
+              style: 'field'
+            },
+            {
+              text: 'Partner\'s monthly childcare expenses:',
+              style: 'label',
+              width: '35%'
+            },
+            {
+              text: [item.partner_childcare_exp],
+              style: 'field'
+            }
+          ]
         },
         {
           margin: [0, 0, 0, 5],
