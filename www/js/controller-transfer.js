@@ -479,7 +479,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'High School Name:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.highschool_name],
@@ -488,7 +488,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'High School City/ST:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.highschool_city + ", " + item.highschool_state],
@@ -501,7 +501,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'High School Diploma:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.hs_diploma],
@@ -510,7 +510,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'EGraduation Date:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.hs_dateofgrad],
@@ -523,7 +523,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'High School GED:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.hs_ged],
@@ -532,7 +532,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'GED Date:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.hs_ged_date],
@@ -575,7 +575,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'Are you a member of Phi Theta Kappa?',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.phi_kappa_member],
@@ -584,7 +584,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'If "Yes," semester inducted:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.kappa_induction_semester],
@@ -613,9 +613,9 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
         {
           columns: [
             {
-              text: 'AP hours',
+              text: 'AP hours:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.ap_transferable_hours],
@@ -624,7 +624,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'Dual Credit hours:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.dc_transferable_hours],
@@ -637,7 +637,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'On-line transferable hours:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.online_transferable_hours],
@@ -646,7 +646,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'On Campus transferable hours:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.oncampus_transferable_hours],
@@ -659,7 +659,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'Total Transferable Hours:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.total_transferable_hours],
@@ -668,7 +668,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: '',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [""],
@@ -901,7 +901,20 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
         },
         {
           margin: [0, 0, 0, 5],
-          text: 'In chronological order, include the following information for up to six church-related, community service, civic organizations, or other activities in which you are most involved: Place/Name of Service, Positions Held, Description of Service, Total Hours, Months and Years Participated'
+          text: 'In chronological order, include the following information for up to six extracurricular activities or organizations in which you are most involved: \n Organization/Activity, Position(s) Held, Description of Activity, Total Hours, Months and Years Participated'
+        },
+        {
+          text: [item.leadership_info],
+          alignment: 'left',
+          style: 'field'
+        },
+        {
+          text: 'Church, Community, and Volunteer Service',
+          style: 'notes'
+        },
+        {
+          margin: [0, 0, 0, 5],
+          text: 'In chronological order, include the following information for up to six church-related, community service, civic organizations, or other activities in which you are most involved: \n Place/Name of Service, Positions Held, Description of Service, Total Hours, Months and Years Participated'
         },
         {
           text: [item.community_service],
@@ -917,7 +930,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: [{
             text: 'In order of importance to you',
             bold: true
-          }, ', list up to six major awards, honors, or distinctions that you received: Award/Honor/Distinction, Description or Basis of Acknowledgement, Level of Competition, Date(s) ']
+          }, ', list up to six major awards, honors, or distinctions that you received: \n Award/Honor/Distinction, Description or Basis of Acknowledgement, Level of Competition, Date(s) ']
         },
         {
           text: [item.awards_honors],
