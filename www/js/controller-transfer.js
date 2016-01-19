@@ -553,7 +553,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'Colleges or Universities attended if currently enrolled, hours in progress:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.college_info],
@@ -562,7 +562,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
             {
               text: 'Cumulative GPA:',
               style: 'label',
-              width: 'auto'
+              width: '35%'
             },
             {
               text: [item.current_college_gpa],
@@ -952,6 +952,54 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
         {
           style: 'field',
           text: [item.why_apply]
+        },
+        {
+          text: 'Why have you chosen your academic major(s)?',
+          style: 'label'
+        },
+        {
+          style: 'field',
+          text: [item.why_major]
+        },
+        {
+          text: 'Briefly describe any educational plans beyond earning your Bachelor\'s degree?',
+          style: 'label'
+        },
+        {
+          style: 'field',
+          text: [item.beyond_bachelors]
+        },
+        {
+          text: 'What are some of your life\'s goals and objectives?',
+          style: 'label'
+        },
+        {
+          style: 'field',
+          text: [item.life_obj]
+        },
+        {
+          text: 'Has there been a particularly influential faculty member or personal contact that has been instrumental in your decision to attend the University of Houston? If so, please relate:',
+          style: 'label'
+        },
+        {
+          style: 'field',
+          text: [item.faculty_influence]
+        },
+        {
+          text: 'Transfer/non-traditional students often tell us that their prior experience has taught them lessons that helped them to be successful. What lessons have you learned that you would like to pass on to other students?',
+          style: 'label'
+        },
+        {
+          style: 'field',
+          text: [item.transfer_lessons]
+        },
+        {
+          text: 'Is there any additional information that you consider important for the committee to know in evaluating your application for scholarship consideration?',
+          style: 'label'
+        },
+        {
+          style: 'field',
+          text: [item.additional_info]
         },
         {
           pageBreak: 'after',
