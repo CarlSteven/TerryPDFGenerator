@@ -497,6 +497,190 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           ]
         },
         {
+          columns: [
+            {
+              text: 'High School Diploma:',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.hs_diploma],
+              style: 'field'
+            },
+            {
+              text: 'EGraduation Date:',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.hs_dateofgrad],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'High School GED:',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.hs_ged],
+              style: 'field'
+            },
+            {
+              text: 'GED Date:',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.hs_ged_date],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          pageBreak: 'after',
+          text: ''
+        },
+        {
+          text: 'III.  College Information',
+          style: 'chapterheader'
+        },
+        {
+          columns: [
+            {
+              text: 'Colleges or Universities attended if currently enrolled, hours in progress:',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.college_info],
+              style: 'field'
+            },
+            {
+              text: 'Cumulative GPA:',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.current_college_gpa],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'Are you a member of Phi Theta Kappa?',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.phi_kappa_member],
+              style: 'field'
+            },
+            {
+              text: 'If "Yes," semester inducted:',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.kappa_induction_semester],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          text: 'List the following information for all Colleges or Universities you have physically attended (Institution name, city and state in which the institution is located, semesters of attendance, hours attempted, hours completed, and cumulative GPA at the institution):',
+          style: 'label',
+          width: 'auto'
+        },
+        {
+          text: [item.colleges_attended],
+          style: 'field'
+        },
+        {
+          text: 'List the following information for all online Colleges or Universities you have attended (Institution name, city and state, semesters of attendance, hours attempted,hours completed, and cumulative GPA at the institution):',
+          style: 'label',
+          width: 'auto'
+        },
+        {
+          text: [item.online_colleges_attended],
+          style: 'field'
+        },
+        {
+          columns: [
+            {
+              text: 'AP hours',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.ap_transferable_hours],
+              style: 'field'
+            },
+            {
+              text: 'Dual Credit hours:',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.dc_transferable_hours],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'On-line transferable hours:',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.online_transferable_hours],
+              style: 'field'
+            },
+            {
+              text: 'On Campus transferable hours:',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.oncampus_transferable_hours],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              text: 'Total Transferable Hours:',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [item.total_transferable_hours],
+              style: 'field'
+            },
+            {
+              text: '',
+              style: 'label',
+              width: 'auto'
+            },
+            {
+              text: [""],
+              style: 'field'
+            }
+          ]
+        },
+        {
+          pageBreak: 'after',
+          text: ''
+        },
+        {
           text: 'III.  ACTIVITIES, AWARDS, AND EMPLOYMENT',
           style: 'chapterheader'
         },
