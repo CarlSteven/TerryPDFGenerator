@@ -514,7 +514,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'field'
         },
         {
-          text: 'Community Service',
+          text: 'Leadership Activities',
           style: 'notes'
         },
         {
@@ -535,11 +535,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'chapterheader'
         },
         {
-          text: 'Extracurricular Activities',
-          style: 'notes'
-        },
-        {
-          text: 'Awards and Honors',
+          text: 'Awards, Special Honors, and Distinctions',
           style: 'notes'
         },
         {
@@ -569,14 +565,6 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
         {
           style: 'field',
           text: [item.why_apply]
-        },
-        {
-          margin: [0, 10, 0, 10],
-          text: 'What are your educational plans beyond earning your Bachelor\'s degree? What are your professional and life goals and objectives?'
-        },
-        {
-          style: 'field',
-          text: [item.why_major]
         },
         {
           pageBreak: 'after',
@@ -613,61 +601,19 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
                     }
                   ]
                 }
-              ],
-              [
-                {
-                  columns: [
-                    {
-                      text: 'Your Annual Gross Income:',
-                      style: 'label',
-                      width: 'auto'
-                    },
-                    {
-                      text: [item.agi.toString()],
-                      alignment: 'left',
-                      style: 'field'
-                    }
-                  ]
-                }
               ]
             ]
           },
           layout: 'noBorders'
         },
         {
-          text: 'Are you claimed as a dependent by a parent or legal guardian?'
+          text: 'Were you or will you be listed as a dependent on someone else\'s tax return for 2015?'
         },
         {
           text: [item.dependents_info],
           style: 'field',
           width: 'auto',
           margin: [5, 0, 0, 5]
-        },
-        {
-          text: 'The following questions will help to estimate your financial need.  Please complete all questions or your application cannot be considered.',
-          style: 'notes'
-        },
-        {
-          text: 'Parents’/Guardians’ Adjusted Gross Income for 2014 (line 37 on Form 1040; line 21 on form 1040A):',
-          bold: true
-        },
-        {
-          columns: [
-            {
-              text: [item.parents_agi.toString()],
-              style: 'field',
-              width: 'auto'
-            }
-          ]
-        },
-        {
-          text: 'Please describe any special circumstances that affect your family’s ability to fund your college expenses (response required):',
-          bold: true
-        },
-        {
-          text: [item.spec_circumstances],
-          style: 'field',
-          width: 'auto'
         },
         {
           margin: [0, 0, 0, 5],
