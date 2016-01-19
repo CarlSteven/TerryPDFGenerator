@@ -491,7 +491,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
               width: 'auto'
             },
             {
-              text: [item.highschool_city + ", " + item.hs_state],
+              text: [item.highschool_city + ", " + item.highschool_state],
               style: 'field'
             }
           ]
