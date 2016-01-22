@@ -16,7 +16,6 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
       $scope.csv_internal = $scope.csv_internal + $scope.header;
 
       for (var i = 0; i < 44; i++) {
-        console.log($scope.csv_line_array[i]);
         delete $scope.csv_line_array[i];
       }
 
@@ -497,7 +496,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
               style: 'field'
             },
             {
-              text: 'EGraduation Date:',
+              text: 'Graduation Date:',
               style: 'label',
               width: '35%'
             },
@@ -582,20 +581,24 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           ]
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'List the following information for all Colleges or Universities you have physically attended (Institution name, city and state in which the institution is located, semesters of attendance, hours attempted, hours completed, and cumulative GPA at the institution):',
           style: 'label',
           width: 'auto'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.colleges_attended],
           style: 'field'
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'List the following information for all online Colleges or Universities you have attended (Institution name, city and state, semesters of attendance, hours attempted,hours completed, and cumulative GPA at the institution):',
           style: 'label',
           width: 'auto'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.online_colleges_attended],
           style: 'field'
         },
@@ -704,6 +707,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: ['List the following information for your current and previous jobs or internships, beginning with the most recent: Position/Job Title, Employer, Hours per week, Dates of Employment']
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.employment],
           alignment: 'left',
           style: 'field'
@@ -735,11 +739,13 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           ]
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Have you previously served on active duty in a uniformed service of the United States?',
           style: 'label',
           width: 'auto'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.military_active_duty],
           style: 'field'
         },
@@ -749,17 +755,20 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           width: 'auto'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.military_info2],
           style: 'field'
         },
         {
           columns: [
             {
+              margin: [0, 0, 0, 5],
               text: 'List all Military Occupation Specialties attained:',
               style: 'label',
               width: '50%'
             },
             {
+              margin: [0, 0, 0, 5],
               text: 'Additional specialized training received',
               style: 'label',
               width: '50%'
@@ -769,11 +778,13 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
         {
           columns: [
             {
+              margin: [5, -5, 0, 5],
               text: [item.military_mos],
               style: 'field',
               width: '50%'
             },
             {
+              margin: [5, -5, 0, 5],
               text: [item.military_training],
               style: 'field',
               width: '50%'
@@ -781,10 +792,12 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           ]
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'List all medals, honors, and awards received relating to Military Service:',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.military_honors],
           style: 'field'
         },
@@ -893,6 +906,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: 'In chronological order, include the following information for up to six extracurricular activities or organizations in which you are most involved: \n Organization/Activity, Position(s) Held, Description of Activity, Total Hours, Months and Years Participated'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.leadership_info],
           alignment: 'left',
           style: 'field'
@@ -906,6 +920,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: 'In chronological order, include the following information for up to six church-related, community service, civic organizations, or other activities in which you are most involved: \n Place/Name of Service, Positions Held, Description of Service, Total Hours, Months and Years Participated'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.community_service],
           alignment: 'left',
           style: 'field'
@@ -922,6 +937,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           }, ', list up to six major awards, honors, or distinctions that you received: \n Award/Honor/Distinction, Description or Basis of Acknowledgement, Level of Competition, Date(s) ']
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.awards_honors],
           alignment: 'left',
           style: 'field'
@@ -935,58 +951,72 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'chapterheader'
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Why have you chosen to apply to the University of Houston?',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           style: 'field',
           text: [item.why_apply]
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Why have you chosen your academic major(s)?',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           style: 'field',
           text: [item.why_major]
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Briefly describe any educational plans beyond earning your Bachelor\'s degree?',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           style: 'field',
           text: [item.beyond_bachelors]
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'What are some of your life\'s goals and objectives?',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           style: 'field',
           text: [item.life_obj]
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Has there been a particularly influential faculty member or personal contact that has been instrumental in your decision to attend the University of Houston? If so, please relate:',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           style: 'field',
           text: [item.faculty_influence]
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Transfer/non-traditional students often tell us that their prior experience has taught them lessons that helped them to be successful. What lessons have you learned that you would like to pass on to other students?',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           style: 'field',
           text: [item.transfer_lessons]
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Is there any additional information that you consider important for the committee to know in evaluating your application for scholarship consideration?',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           style: 'field',
           text: [item.additional_info]
         },
@@ -1031,22 +1061,24 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           layout: 'noBorders'
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Please provide the following information for all dependents (spouse, children or stephchildren, parents, others) who reside with you or to whom you are obligated to provide support for: \n Name, Age, Relationship, Year in College (if applicable), Reside with you? (yes/no)'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.dependents],
           style: 'field',
-          width: 'auto',
-          margin: [5, 0, 0, 5]
+          width: 'auto'
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Were you or will you be listed as a dependent on someone else\'s tax return for 2015?'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.dependents_info],
           style: 'field',
-          width: 'auto',
-          margin: [5, 0, 0, 5]
+          width: 'auto'
         },
         {
           text: 'If "Yes," to the above question, complete the following:'
@@ -1096,18 +1128,22 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           ]
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Your parent(s)\', stepparent(s)\', or gaurdians\' Adjusted Gross Income for 2015:',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.parents_agi],
           style: 'field'
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Amount of financial support received by you from family (not your partner) in 2015:',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.fin_support_rec_fam],
           style: 'field'
         },
@@ -1266,10 +1302,12 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           ]
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Are there other financial resources that you regularly receive or rely upon to support yourself and your family? If so, please describe and provide the amounts:',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.fin_resources],
           style: 'field'
         },
@@ -1282,18 +1320,22 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'chapterheader'
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'If you provide financial support for another family (whether child, parent, sibling, or other), please tell us about this family:',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.fin_support_fam],
           style: 'field'
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'Please describe any special circumstances or additional factors that affect your family\'s ability to fund your college expenses:',
           style: 'label'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.spec_circumstances],
           style: 'field'
         },
@@ -1302,6 +1344,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: 'Do you have a sibling who is a current/past Terry Scholar or who is applying for a Terry Scholarship?'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.sibling_terry],
           style: 'field'
         },
@@ -1310,6 +1353,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: 'If you answered yes to the above, please provide name(s) and institution(s):'
         },
         {
+          margin: [5, -5, 0, 5],
           text: [item.sibling_institutions],
           style: 'field'
         },
