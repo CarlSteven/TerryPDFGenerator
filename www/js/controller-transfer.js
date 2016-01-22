@@ -587,7 +587,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           width: 'auto'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.colleges_attended],
           style: 'field'
         },
@@ -598,7 +598,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           width: 'auto'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.online_colleges_attended],
           style: 'field'
         },
@@ -707,7 +707,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: ['List the following information for your current and previous jobs or internships, beginning with the most recent: Position/Job Title, Employer, Hours per week, Dates of Employment']
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.employment],
           alignment: 'left',
           style: 'field'
@@ -745,17 +745,18 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           width: 'auto'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.military_active_duty],
           style: 'field'
         },
         {
+          margin: [0, 0, 0, 5],
           text: 'If "Yes," please provide the following information: Service Branch, Dates of Service, Active or Reserve, Current Status, Station Location(s) + Dates',
           style: 'label',
           width: 'auto'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.military_info2],
           style: 'field'
         },
@@ -778,13 +779,13 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
         {
           columns: [
             {
-              margin: [5, -5, 0, 5],
+              margin: [5, -5, 0, 10],
               text: [item.military_mos],
               style: 'field',
               width: '50%'
             },
             {
-              margin: [5, -5, 0, 5],
+              margin: [5, -5, 0, 10],
               text: [item.military_training],
               style: 'field',
               width: '50%'
@@ -797,7 +798,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.military_honors],
           style: 'field'
         },
@@ -906,7 +907,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: 'In chronological order, include the following information for up to six extracurricular activities or organizations in which you are most involved: \n Organization/Activity, Position(s) Held, Description of Activity, Total Hours, Months and Years Participated'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.leadership_info],
           alignment: 'left',
           style: 'field'
@@ -920,7 +921,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: 'In chronological order, include the following information for up to six church-related, community service, civic organizations, or other activities in which you are most involved: \n Place/Name of Service, Positions Held, Description of Service, Total Hours, Months and Years Participated'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.community_service],
           alignment: 'left',
           style: 'field'
@@ -937,7 +938,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           }, ', list up to six major awards, honors, or distinctions that you received: \n Award/Honor/Distinction, Description or Basis of Acknowledgement, Level of Competition, Date(s) ']
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.awards_honors],
           alignment: 'left',
           style: 'field'
@@ -956,7 +957,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           style: 'field',
           text: [item.why_apply]
         },
@@ -966,7 +967,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           style: 'field',
           text: [item.why_major]
         },
@@ -976,7 +977,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           style: 'field',
           text: [item.beyond_bachelors]
         },
@@ -986,7 +987,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           style: 'field',
           text: [item.life_obj]
         },
@@ -996,7 +997,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           style: 'field',
           text: [item.faculty_influence]
         },
@@ -1006,7 +1007,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           style: 'field',
           text: [item.transfer_lessons]
         },
@@ -1016,7 +1017,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           style: 'field',
           text: [item.additional_info]
         },
@@ -1065,7 +1066,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: 'Please provide the following information for all dependents (spouse, children or stephchildren, parents, others) who reside with you or to whom you are obligated to provide support for: \n Name, Age, Relationship, Year in College (if applicable), Reside with you? (yes/no)'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.dependents],
           style: 'field',
           width: 'auto'
@@ -1075,7 +1076,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: 'Were you or will you be listed as a dependent on someone else\'s tax return for 2015?'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.dependents_info],
           style: 'field',
           width: 'auto'
@@ -1133,7 +1134,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.parents_agi],
           style: 'field'
         },
@@ -1143,7 +1144,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.fin_support_rec_fam],
           style: 'field'
         },
@@ -1307,7 +1308,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.fin_resources],
           style: 'field'
         },
@@ -1325,7 +1326,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.fin_support_fam],
           style: 'field'
         },
@@ -1335,7 +1336,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           style: 'label'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.spec_circumstances],
           style: 'field'
         },
@@ -1344,7 +1345,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: 'Do you have a sibling who is a current/past Terry Scholar or who is applying for a Terry Scholarship?'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.sibling_terry],
           style: 'field'
         },
@@ -1353,7 +1354,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: 'If you answered yes to the above, please provide name(s) and institution(s):'
         },
         {
-          margin: [5, -5, 0, 5],
+          margin: [5, -5, 0, 10],
           text: [item.sibling_institutions],
           style: 'field'
         },
