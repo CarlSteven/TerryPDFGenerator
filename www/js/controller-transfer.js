@@ -673,7 +673,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: ''
         },
         {
-          text: 'III.  ACTIVITIES, AWARDS, AND EMPLOYMENT',
+          text: 'IV.  ACTIVITIES, AWARDS, AND EMPLOYMENT',
           style: 'chapterheader'
         },
         {
@@ -895,7 +895,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: ''
         },
         {
-          text: 'III.  EMPLOYMENT, ACTIVITIES, SERVICE AND AWARDS (continued)',
+          text: 'IV.  EMPLOYMENT, ACTIVITIES, SERVICE AND AWARDS (continued)',
           style: 'chapterheader'
         },
         {
@@ -948,7 +948,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: ''
         },
         {
-          text: 'IV.  COLLEGE PLANS',
+          text: 'V.  COLLEGE PLANS',
           style: 'chapterheader'
         },
         {
@@ -1026,7 +1026,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: ''
         },
         {
-          text: 'V.  FINANCIAL INFORMATION',
+          text: 'VI.  FINANCIAL INFORMATION',
           style: 'chapterheader'
         },
         {
@@ -1317,7 +1317,7 @@ angular.module('app.controllers').controller('transferPDFCtrl', function ($scope
           text: ''
         },
         {
-          text: 'V.  FINANCIAL INFORMATION (continued)',
+          text: 'VI.  FINANCIAL INFORMATION (continued)',
           style: 'chapterheader'
         },
         {
